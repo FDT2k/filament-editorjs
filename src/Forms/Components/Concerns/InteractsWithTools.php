@@ -38,6 +38,16 @@ trait InteractsWithTools
     return $this;
   }
 
+  public function toolbar(array | Closure $toolbar = []): static
+  {
+    $this->toolbar = $toolbar;
+
+    return $this;
+  }
+  public function getToolbar():array{
+    return $this->evaluate($this->toolbar);
+  }
+
   public function getTools(): array
   {
     return $this->evaluate($this->tools);

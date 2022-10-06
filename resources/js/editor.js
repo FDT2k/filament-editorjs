@@ -9,19 +9,34 @@ import Quote from "@editorjs/quote";
 import Table from "@editorjs/table";
 import RawTool from "@editorjs/raw";
 import Delimiter from "@editorjs/delimiter";
+import Hyperlink from 'editorjs-hyperlink-browse/src/Hyperlink.js';
 import { StyleInlineTool } from "editorjs-style";
 import DragDrop from "editorjs-drag-drop";
-
 document.addEventListener("alpine:init", () => {
   Alpine.data(
     "editorjs",
-    ({ state, statePath, placeholder, readOnly, tools, minHeight }) => ({
+    ({ state, statePath, placeholder, readOnly, tools,toolbar, minHeight }) => ({
       instance: null,
       state: state,
       tools: tools,
+      toolbar: toolbar,
       init() {
         let enabledTools = {};
-
+        console.log('tools',this.tools)
+        if (this.tools.includes("hyperlink")){
+          enabledTools.hyperlink = {
+            class:Hyperlink,
+            config:{
+            availableTargets:[
+             {"_self" : "Même Fenêtre"},
+              {"_blank" : "Nouvelle Fenêtre"},
+            ],
+            shouldAppendProtocol:false,
+            shouldMakeLinkAbsolute: true,
+            browseCallback:()=>{}
+          }
+          }
+        }
         if (this.tools.includes("header")) enabledTools.header = Header;
         if (this.tools.includes("image")) {
           enabledTools.image = {
@@ -87,7 +102,7 @@ document.addEventListener("alpine:init", () => {
           placeholder: placeholder,
           readOnly: readOnly,
           tools: enabledTools,
-
+          inlineToolbar:this.toolbar,
           onChange: () => {
             this.instance.save().then((outputData) => {
               this.state = outputData;

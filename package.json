@@ -32,6 +32,9 @@
     "@editorjs/list": "^1.7.0",
     "@editorjs/quote": "^2.4.0",
     "@editorjs/table": "^2.0.2",
-    "@editorjs/underline": "^1.0.0"
+    "@editorjs/underline": "^1.0.0",
+    "editorjs-hyperlink-browse": "^1.0.4",
+    "editorjs-image-browse": "^1.0.2",
+    "webpack": "^5.72.0"
   }
 }

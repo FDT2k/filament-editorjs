@@ -29,6 +29,10 @@ class EditorJs extends Field implements HasFileAttachmentsContract
     'style',
   ];
 
+  protected array | Closure $toolbar=['bold','italic','link'];
+
+
+
   protected int | Closure | null $minHeight = 30;
 
   public function minHeight(int | Closure | null $minHeight): static
