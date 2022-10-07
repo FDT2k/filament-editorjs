@@ -20,7 +20,7 @@
                 readOnly: {{ $isDisabled() ? 'true' : 'false' }},
                 tools: @js($getTools()),
                 toolbar: @js($getToolbar()),
-                minHeight: @js($getMinHeight())
+                minHeight: @js($getMinHeight()),
             })"
        >
       </div>

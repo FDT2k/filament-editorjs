@@ -33,7 +33,9 @@ document.addEventListener("alpine:init", () => {
             ],
             shouldAppendProtocol:false,
             shouldMakeLinkAbsolute: true,
-            browseCallback:()=>{}
+            browseCallback:(callback)=>{
+              $wire.dispatchFormEvent('hyperlink::browse',this.statePath);
+            }
           }
           }
         }

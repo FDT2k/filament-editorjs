@@ -11,7 +11,7 @@
 You can install the package via composer:
 
 ```bash
-composer require rahmanramsi/filament-editorjs
+composer require kda/filament-editorjs
 ```
 
 ## Usage

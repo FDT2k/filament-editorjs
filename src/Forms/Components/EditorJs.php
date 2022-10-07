@@ -46,4 +46,6 @@ class EditorJs extends Field implements HasFileAttachmentsContract
   {
       return $this->evaluate($this->minHeight);
   }
+
+  
 }
