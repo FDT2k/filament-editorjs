@@ -36,5 +36,6 @@
     "editorjs-hyperlink-browse": "^1.0.4",
     "editorjs-image-browse": "^1.0.2",
     "webpack": "^5.72.0"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
